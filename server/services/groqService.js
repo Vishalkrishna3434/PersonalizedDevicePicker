@@ -75,6 +75,8 @@ async function generateTechResponse(userMessage) {
 async function extractSearchIntent(userMessage) {
     const systemPrompt = `You are an intent extraction engine for a device e-commerce store. 
     Analyze the user's message and determine if they are searching for products to buy/browse or just asking a general tech question.
+    CRITICAL: The database stores prices ONLY in USD. If the user asks for prices using Indian contexts like '70k' or '₹50000', YOU MUST mathematically convert it to USD (~83 INR = 1 USD). 
+    For example: 'under 70k gaming' means maxPrice = 843 (USD).
     Extract the search intent into JSON format matching this exact schema:
     {
         "isDeviceSearch": boolean (true if looking to buy/browse devices, false if a general question like "what is OLED?"),
@@ -82,7 +84,7 @@ async function extractSearchIntent(userMessage) {
         "brand": "string | null",
         "minPrice": "number | null",
         "maxPrice": "number | null",
-        "searchQuery": "string representation of extra keywords | null"
+        "searchQuery": "string representation of extra keywords like 'gaming', 'camera' etc | null"
     }`;
 
     const messages = [

@@ -644,7 +644,7 @@ const generateAllDevices = () => {
       operatingSystem: m.brand === 'Apple' ? 'iPadOS 17' : 'Android 13',
       dimensions: { length: '280.6 mm', width: '214.9 mm', height: '6.4 mm', weight: '682 g' }
     }, [{ source: `${m.brand} Store`, url: `https://${m.brand.toLowerCase()}.com`, price: m.price, currency: 'USD' }],
-      m.price > 700 ? ['premium'] : ['mid-range'],
+      m.price > 700 ? ['premium', 'gaming'] : ['mid-range'],
       m.date, `${m.name} - ${m.brand} tablet`);
   });
 
