@@ -412,13 +412,13 @@ const generateNewsItems = () => {
   };
 
   categories.forEach(category => {
-    // Ensure at least 12 items per category
-    for (let i = 0; i < 12; i++) {
-      const template = templates[category][i % templates[category].length];
+    // Only use curated high-quality generic template arrays
+    for (let i = 0; i < templates[category].length; i++) {
+      const template = templates[category][i];
       const dateOffset = Math.floor(Math.random() * 30); // Random date within last 30 days
 
       news.push({
-        title: i < 6 ? template.t : `${template.t} - Update ${i - 5}`,
+        title: template.t,
         description: `Latest updates and news regarding ${template.t}. This article covers everything you need to know about the recent developments, specs, and release information.`,
         content: `Full detailed coverage of ${template.t}. We dive deep into the specifications, features, and what this means for the industry.`,
         url: 'https://techcrunch.com',
@@ -440,7 +440,7 @@ const newsItems = generateNewsItems();
 
 const seedDatabase = async () => {
   try {
-    await mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/pickmytech');
+    await mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/PersonalizedDevicePicker');
     console.log('Connected to MongoDB');
 
     // Clear existing data

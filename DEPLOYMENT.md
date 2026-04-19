@@ -1,6 +1,6 @@
-# Deployment Guide for PickMyTech
+﻿# Deployment Guide for PersonalizedDevicePicker
 
-This guide will help you deploy PickMyTech to production.
+This guide will help you deploy PersonalizedDevicePicker to production.
 
 ## Prerequisites
 
@@ -20,7 +20,7 @@ heroku login
 2. **Create Heroku app**:
 ```bash
 cd server
-heroku create pickmytech-api
+heroku create PersonalizedDevicePicker-api
 ```
 
 3. **Set environment variables**:
@@ -50,7 +50,7 @@ git push heroku main
 ```bash
 npm install -g pm2
 cd server
-pm2 start index.js --name pickmytech-api
+pm2 start index.js --name PersonalizedDevicePicker-api
 pm2 save
 pm2 startup
 ```
@@ -87,7 +87,7 @@ REACT_APP_API_URL=https://your-backend-url.com
 1. Update `package.json` in client:
 ```json
 {
-  "homepage": "https://yourusername.github.io/pick-my-tech",
+  "homepage": "https://yourusername.github.io/personalized-device-picker",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
@@ -110,7 +110,7 @@ npm run deploy
 ### Backend (.env)
 ```env
 PORT=5000
-MONGODB_URI=mongodb+srv://user:password@cluster.mongodb.net/pickmytech
+MONGODB_URI=mongodb+srv://user:password@cluster.mongodb.net/PersonalizedDevicePicker
 JWT_SECRET=your_strong_secret_key_here
 JWT_EXPIRE=7d
 CLIENT_URL=https://your-frontend-url.com

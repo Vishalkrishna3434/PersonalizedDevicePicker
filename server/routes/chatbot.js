@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { optional } = require('../middleware/auth');
 const Device = require('../models/Device');
+const { extractSearchIntent, generateTechResponse } = require('../services/groqService');
 
 // Intent Detection Patterns
 const PATTERNS = {
@@ -54,7 +55,7 @@ const PATTERNS = {
     recommendations: /(recommend|suggestion)/i
   },
 
-  deviceSpecific: /(tell me about|specs of|details of|info about|what is|specifications)/i,
+  deviceSpecific: /(tell me about|specs of|details of|info about|specifications)/i,
 
   help: /^(help|what can you do|features|how to use)/i,
   thanks: /(thank|thanks|appreciate)/i
@@ -197,7 +198,7 @@ const processMessage = async (message) => {
   if (PATTERNS.deviceSpecific.test(msg)) {
     // Extract device name (everything after the trigger phrase)
     const deviceName = msg
-      .replace(/tell me about|specs of|details of|info about|what is|specifications/i, '')
+      .replace(/tell me about|specs of|details of|info about|specifications/i, '')
       .trim();
 
     if (deviceName.length > 2) {
@@ -205,47 +206,26 @@ const processMessage = async (message) => {
     }
   }
 
-  // 6. DEVICE SEARCH
-  if (PATTERNS.search.general.test(msg) || PATTERNS.search.price.test(msg) || extractCategory(msg)) {
-    const category = extractCategory(msg);
-    const brand = extractBrand(msg);
-    const prices = extractPrice(msg);
-    const searchQuery = buildSearchQuery(msg);
-
-    return await handleSearchDevices({
-      category,
-      brand,
-      ...prices,
-      searchQuery
-    });
+  // 6. LLM Search Intent Extraction
+  // Use Groq to parse complex queries into JSON structure
+  const intent = await extractSearchIntent(msg);
+  if (intent && intent.isDeviceSearch) {
+      return await handleSearchDevices({
+        ...intent
+      });
   }
 
-  // 7. GENERAL TECH QUESTIONS
-  const techAnswers = {
-    'what is amoled': '**AMOLED** (Active Matrix Organic Light-Emitting Diode) is a display technology that offers deeper blacks, vibrant colors, and better power efficiency compared to LCD. Each pixel emits its own light! 🎨',
-    'what is ram': '**RAM** (Random Access Memory) is your device\'s short-term memory. More RAM = better multitasking. For phones: 6-8GB is good, 12GB+ is great. For laptops: 8GB minimum, 16GB recommended. 💾',
-    'what is processor': 'The **Processor** (CPU) is your device\'s brain. Popular ones:\n• Snapdragon (phones)\n• Apple A-series (iPhones)\n• Intel/AMD Ryzen (laptops)\n\nHigher numbers = better performance! 🧠',
-    'what is refresh rate': '**Refresh Rate** (Hz) = how many times your screen updates per second.\n• 60Hz: Standard\n• 90Hz: Smooth\n• 120Hz+: Buttery smooth!\n\nHigher = smoother scrolling and gaming. ⚡',
-    '5g': '**5G** is the latest mobile network technology, offering:\n• Faster internet speeds (up to 10Gbps)\n• Lower latency\n• Better connectivity\n\nMost new phones now support 5G! 📡',
-    'fast charging': '**Fast Charging** technologies:\n• 18W: Basic fast charging\n• 33W-67W: Fast\n• 100W+: Super fast (0-100% in ~20 mins)\n\nCheck your charger wattage! ⚡'
-  };
-
-  for (const [key, answer] of Object.entries(techAnswers)) {
-    if (msg.includes(key)) {
-      return { action: 'text', response: answer };
-    }
+  // 7. LLM Tech Buddy Fallback
+  // If it's not a search and not a basic pattern, ask the LLM
+  try {
+     const llmResponse = await generateTechResponse(msg);
+     return { action: 'text', response: llmResponse };
+  } catch (err) {
+     return {
+       action: 'text',
+       response: "I'm having some technical difficulties reaching my brain (API Error). Try asking nicely! 🔧"
+     };
   }
-
-  // 8. FALLBACK - Ask for clarification
-  return {
-    action: 'text',
-    response: `I'm not quite sure what you're looking for. 🤔\n\n` +
-      `Try asking like:\n` +
-      `• "Show me gaming phones under 30000"\n` +
-      `• "Tell me about iPhone 15"\n` +
-      `• "Latest tech news"\n` +
-      `• "What is AMOLED?"`
-  };
 };
 
 // Tool Handler: Search Devices

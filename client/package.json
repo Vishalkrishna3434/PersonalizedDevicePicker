@@ -1,5 +1,5 @@
 {
-  "name": "pick-my-tech-client",
+  "name": "personalized-device-picker-client",
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:5001",

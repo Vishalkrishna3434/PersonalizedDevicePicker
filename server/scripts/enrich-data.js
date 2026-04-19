@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+﻿const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const path = require('path');
 const Device = require('../models/Device');
@@ -32,7 +32,7 @@ const REVIEW_TEMPLATES = [
 async function enrichData() {
     try {
         console.log('Connecting to MongoDB...');
-        await mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/pickmytech');
+        await mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/PersonalizedDevicePicker');
         console.log('Connected!');
 
         // Get a user to attribute reviews to (or create one)

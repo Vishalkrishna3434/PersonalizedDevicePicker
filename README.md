@@ -1,6 +1,6 @@
-# PickMyTech - Intelligent Technology Recommendation Platform
+﻿# PersonalizedDevicePicker - Intelligent Technology Recommendation Platform
 
-PickMyTech is a comprehensive MERN stack application that helps users find the perfect mobile phones, laptops, and other tech devices through intelligent recommendations, detailed specifications, and a vibrant community.
+PersonalizedDevicePicker is a comprehensive MERN stack application that helps users find the perfect mobile phones, laptops, and other tech devices through intelligent recommendations, detailed specifications, and a vibrant community.
 
 ## 🌟 Features
 
@@ -50,7 +50,7 @@ PickMyTech is a comprehensive MERN stack application that helps users find the p
 1. **Clone the repository**
 ```bash
 git clone <repository-url>
-cd pick-my-tech
+cd personalized-device-picker
 ```
 
 2. **Install dependencies**
@@ -72,7 +72,7 @@ npm install
 Create a `.env` file in the `server` directory:
 ```env
 PORT=5000
-MONGODB_URI=mongodb://localhost:27017/pickmytech
+MONGODB_URI=mongodb://localhost:27017/PersonalizedDevicePicker
 JWT_SECRET=your_jwt_secret_key_here
 JWT_EXPIRE=7d
 CLIENT_URL=http://localhost:3000
@@ -114,7 +114,7 @@ The application will be available at:
 ## 📁 Project Structure
 
 ```
-pick-my-tech/
+personalized-device-picker/
 ├── server/
 │   ├── models/          # MongoDB models
 │   ├── routes/          # API routes

@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { motion } from 'framer-motion'
 import { Star, Quote } from 'lucide-react'
@@ -8,7 +8,7 @@ const testimonials = [
     name: 'Sarah Johnson',
     role: 'Software Engineer',
     image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100',
-    content: 'PickMyTech helped me find the perfect laptop for my development work. The recommendations were spot-on, and the detailed comparisons made my decision easy.',
+    content: 'PersonalizedDevicePicker helped me find the perfect laptop for my development work. The recommendations were spot-on, and the detailed comparisons made my decision easy.',
     rating: 5,
   },
   {
@@ -22,7 +22,7 @@ const testimonials = [
     name: 'Emily Davis',
     role: 'Content Creator',
     image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100',
-    content: 'The community section and real-time pricing features are amazing. I saved both time and money by using PickMyTech for my latest gadget purchase.',
+    content: 'The community section and real-time pricing features are amazing. I saved both time and money by using PersonalizedDevicePicker for my latest gadget purchase.',
     rating: 5,
   },
 ]

@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { motion } from 'framer-motion'
 import { Sparkles, Filter, TrendingUp, Users, Zap, Shield, BarChart3 } from 'lucide-react'
@@ -58,7 +58,7 @@ export default function Features() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Why Choose <span className="gradient-text">PickMyTech</span>?
+            Why Choose <span className="gradient-text">PersonalizedDevicePicker</span>?
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
             We combine cutting-edge technology with user-centric design to deliver an unmatched experience.

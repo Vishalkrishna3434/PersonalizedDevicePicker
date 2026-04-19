@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { signIn, getSession } from 'next-auth/react'
 import { useRouter, useSearchParams } from 'next/navigation'
@@ -42,7 +42,7 @@ export default function SignInPage() {
         <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-2xl p-8">
           <div className="text-center mb-8">
             <h1 className="text-3xl font-bold mb-2">
-              Welcome to <span className="gradient-text">PickMyTech</span>
+              Welcome to <span className="gradient-text">PersonalizedDevicePicker</span>
             </h1>
             <p className="text-gray-600 dark:text-gray-400">
               Sign in to get personalized recommendations

@@ -1,6 +1,6 @@
-# Quick Start Guide - PickMyTech
+﻿# Quick Start Guide - PersonalizedDevicePicker
 
-Get PickMyTech up and running in minutes!
+Get PersonalizedDevicePicker up and running in minutes!
 
 ## Prerequisites Check
 
@@ -52,8 +52,8 @@ npm install
 Create `server/.env` file:
 ```env
 PORT=5000
-MONGODB_URI=mongodb://localhost:27017/pickmytech
-# OR for Atlas: mongodb+srv://username:password@cluster.mongodb.net/pickmytech
+MONGODB_URI=mongodb://localhost:27017/PersonalizedDevicePicker
+# OR for Atlas: mongodb+srv://username:password@cluster.mongodb.net/PersonalizedDevicePicker
 
 JWT_SECRET=your_super_secret_jwt_key_change_this_in_production
 JWT_EXPIRE=7d
@@ -159,7 +159,7 @@ Error: Cannot find module 'xyz'
 ### Test Backend
 ```bash
 curl http://localhost:5000/api/health
-# Should return: {"status":"OK","message":"PickMyTech API is running"}
+# Should return: {"status":"OK","message":"PersonalizedDevicePicker API is running"}
 ```
 
 ### Test Devices API

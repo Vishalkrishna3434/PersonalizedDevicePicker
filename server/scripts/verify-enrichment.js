@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+﻿const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const path = require('path');
 const Device = require('../models/Device');
@@ -8,7 +8,7 @@ dotenv.config({ path: path.join(__dirname, '../../.env') });
 
 async function verifyData() {
     try {
-        await mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/pickmytech');
+        await mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/PersonalizedDevicePicker');
 
         const deviceCount = await Device.countDocuments();
         console.log(`Total Devices: ${deviceCount}`);

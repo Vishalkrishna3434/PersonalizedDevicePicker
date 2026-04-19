@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { FaGoogle, FaGithub, FaFacebook } from 'react-icons/fa';
@@ -38,7 +38,7 @@ const Register = () => {
       <div className="auth-container">
         <div className="auth-header">
           <h1>Create Account</h1>
-          <p>Join PickMyTech and find your perfect device</p>
+          <p>Join PersonalizedDevicePicker and find your perfect device</p>
         </div>
 
         <form onSubmit={handleSubmit} className="auth-form">

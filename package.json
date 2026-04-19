@@ -1,11 +1,11 @@
 {
-  "name": "pick-my-tech",
+  "name": "personalized-device-picker",
   "version": "1.0.0",
   "description": "Intelligent Technology Recommendation Platform",
   "main": "server/index.js",
   "scripts": {
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "server": "cd server && npm run dev",
+    "server": "node server/index.js",
     "client": "cd client && npm start",
     "build": "cd client && npm run build",
     "install-server": "cd server && npm install",
@@ -33,6 +33,7 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.0.3",
     "node-cron": "^3.0.3",
+    "sharp": "^0.34.5",
     "socket.io": "^4.5.4"
   },
   "devDependencies": {

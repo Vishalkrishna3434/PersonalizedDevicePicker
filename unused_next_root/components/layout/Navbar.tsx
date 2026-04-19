@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import Link from 'next/link'
 import { useSession, signIn, signOut } from 'next-auth/react'
@@ -17,7 +17,7 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <div className="text-2xl font-bold gradient-text">PickMyTech</div>
+            <div className="text-2xl font-bold gradient-text">PersonalizedDevicePicker</div>
           </Link>
 
           {/* Desktop Navigation */}

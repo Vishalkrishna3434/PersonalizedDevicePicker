@@ -1,4 +1,4 @@
-# PickMyTech - Complete Documentation
+﻿# PersonalizedDevicePicker - Complete Documentation
 
 ## Table of Contents
 1. [Project Overview](#project-overview)
@@ -18,7 +18,7 @@
 
 ## Project Overview
 
-**PickMyTech** is an intelligent technology recommendation platform built with the MERN stack. It helps users discover the perfect tech devices (phones, laptops, tablets, smartwatches, cameras, headphones) through AI-powered recommendations, comprehensive specifications, device comparisons, and community engagement.
+**PersonalizedDevicePicker** is an intelligent technology recommendation platform built with the MERN stack. It helps users discover the perfect tech devices (phones, laptops, tablets, smartwatches, cameras, headphones) through AI-powered recommendations, comprehensive specifications, device comparisons, and community engagement.
 
 ### Key Highlights
 - 🤖 **AI-Powered Chatbot** - Maverick AI assistant with LLM integration (Hugging Face)
@@ -115,7 +115,7 @@
 
 ### Project Structure
 ```
-pick-my-tech/
+personalized-device-picker/
 ├── server/                      # Backend application
 │   ├── index.js                # Server entry point
 │   ├── models/                 # Mongoose models
@@ -370,7 +370,7 @@ pick-my-tech/
 ### Step 1: Clone Repository
 ```bash
 git clone <repository-url>
-cd pick-my-tech
+cd personalized-device-picker
 ```
 
 ### Step 2: Install Dependencies
@@ -392,7 +392,7 @@ npm install
 Create `.env` file in **root directory**:
 ```env
 PORT=5001
-MONGODB_URI=mongodb://localhost:27017/pickmytech
+MONGODB_URI=mongodb://localhost:27017/PersonalizedDevicePicker
 JWT_SECRET=your_super_secret_jwt_key_change_this_in_production
 JWT_EXPIRE=7d
 CLIENT_URL=http://localhost:3000
@@ -921,7 +921,7 @@ HUGGINGFACE_API_KEY=hf_xxxxxxxxxxxxx
 PORT=5001
 
 # Database
-MONGODB_URI=mongodb://localhost:27017/pickmytech
+MONGODB_URI=mongodb://localhost:27017/PersonalizedDevicePicker
 
 # Authentication
 JWT_SECRET=your_super_secret_key_change_in_production

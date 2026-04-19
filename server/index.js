@@ -6,7 +6,8 @@ const http = require('http');
 const { Server } = require('socket.io');
 const cron = require('node-cron');
 
-dotenv.config();
+const path = require('path');
+dotenv.config({ path: path.join(__dirname, '.env') });
 
 const app = express();
 const server = http.createServer(app);
@@ -56,7 +57,7 @@ io.on('connection', (socket) => {
 // Root route
 app.get('/', (req, res) => {
   res.json({
-    message: 'PickMyTech API Server',
+    message: 'PersonalizedDevicePicker API Server',
     version: '1.0.0',
     endpoints: {
       health: '/api/health',
@@ -76,12 +77,12 @@ app.get('/', (req, res) => {
 });
 
 app.get('/api/health', (req, res) => {
-  res.json({ status: 'OK', message: 'PickMyTech API is running' });
+  res.json({ status: 'OK', message: 'PersonalizedDevicePicker API is running' });
 });
 
 const PORT = process.env.PORT || 5001;
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/pickmytech')
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/PersonalizedDevicePicker')
   .then(() => {
     console.log('MongoDB connected');
 

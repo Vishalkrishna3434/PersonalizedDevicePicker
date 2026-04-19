@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { FaBars, FaTimes, FaUser, FaSearch } from 'react-icons/fa';
@@ -16,7 +16,7 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="navbar-container">
         <Link to="/" className="navbar-logo">
-          <span className="logo-text">PickMyTech</span>
+          <span className="logo-text">PersonalizedDevicePicker</span>
         </Link>
 
         <ul className={`navbar-menu ${mobileMenuOpen ? 'active' : ''}`}>
