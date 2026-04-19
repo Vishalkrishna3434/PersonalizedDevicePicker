@@ -77,7 +77,7 @@ JWT_SECRET=your_jwt_secret_key_here
 JWT_EXPIRE=7d
 CLIENT_URL=http://localhost:3000
 NEWS_API_KEY=your_news_api_key
-OPENAI_API_KEY=your_openai_api_key
+GROQ_API_KEY=your_groq_api_key
 ```
 
 4. **Seed the Database**
@@ -222,10 +222,6 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ## 📝 License
 
 This project is open source and available under the MIT License.
-
-## 👤 Author
-
-Built as a portfolio project demonstrating full-stack development skills.
 
 ## 🙏 Acknowledgments
 
