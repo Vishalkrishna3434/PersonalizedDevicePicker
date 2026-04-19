@@ -139,41 +139,7 @@ const buildSearchQuery = (message) => {
 const processMessage = async (message) => {
   const msg = message.toLowerCase().trim();
 
-  // 1. GREETINGS
-  if (PATTERNS.greetings.test(msg)) {
-    return {
-      action: 'text',
-      response: `Hey there! 👋 I'm **Maverick**, your tech buddy.\n\n` +
-        `I can help you with:\n` +
-        `• Finding devices (phones, laptops, etc.)\n` +
-        `• Comparing gadgets\n` +
-        `• Tech news and updates\n` +
-        `• Answering tech questions\n\n` +
-        `What are you looking for today?`
-    };
-  }
 
-  // 2. HELP
-  if (PATTERNS.help.test(msg)) {
-    return {
-      action: 'text',
-      response: `**Here's what I can do:**\n\n` +
-        `📱 **Search Devices**: "Show me gaming phones under 30k"\n` +
-        `🔍 **Device Details**: "Tell me about iPhone 15"\n` +
-        `📰 **News**: "Show me latest tech news"\n` +
-        `⚖️ **Compare**: "Go to compare"\n` +
-        `💬 **Questions**: "What is AMOLED?"\n\n` +
-        `Just ask naturally!`
-    };
-  }
-
-  // 3. THANKS
-  if (PATTERNS.thanks.test(msg)) {
-    return {
-      action: 'text',
-      response: `You're welcome! 😊 Let me know if you need anything else!`
-    };
-  }
 
   // 4. NAVIGATION
   for (const [page, pattern] of Object.entries(PATTERNS.navigation)) {
